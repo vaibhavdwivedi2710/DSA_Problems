@@ -11,7 +11,7 @@ using namespace std;
 class Solution{
 public:
     int remove_duplicate(int a[],int n){
-        set<int>st;
+        /*set<int>st;
         for( int i=0;i<n;i++){
             st.insert(a[i]);
         }
@@ -21,7 +21,15 @@ public:
             a[index]=x;
             index++;
         }
-        return k;
+        return k;*/
+        int i=0;
+        for(int j=1;j<n;j++){
+            if(a[j]!=a[i]){
+                a[i+1]=a[j];
+                i++;
+            }
+        }
+        return(i+1);
     }
 };
 
