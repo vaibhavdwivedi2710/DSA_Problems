@@ -7,19 +7,23 @@ class Solution{
 	
 	
 	public:
+	void reverse(int arr[], int start, int end){
+        int i = start, j = end;
+        while(i<j){
+            long temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+    
 	void leftRotate(int arr[], int k, int n) 
 	{ 
-	   k=k%n;
-	   int temp[k];
-	   for(int i=0;i<k;i++){
-	       temp[i]=arr[i];
-	   }
-	   for(int i=k;i<n;i++){
-	       arr[i-k]=arr[i];
-	   }
-	   for(int i=n-k;i<n;i++){
-	       arr[i]=temp[i-(n-k)];
-	   }
+	    k = k % n;
+        reverse(arr, 0, k-1);
+        reverse(arr, k, n-1);
+        reverse(arr, 0, n-1);
 	} 
 		 
 
