@@ -9,14 +9,16 @@ using namespace std;
 class Solution{
 public:	
 	
-	bool Palindrome(int i, string &S){
-	    if(i>S.size()/2) return true;
-	    if(S[i]!=S[S.size()-i-1]) return false;
-	    return Palindrome(i+1,S);
-	}
+	
 	int isPalindrome(string S)
 	{
-	   Palindrome(0,S);
+	    int len=S.length();
+	    for(int i=0;i<len/2;i++){
+	        if(S[i]!=S[len-i-1]){
+	            return 0;
+	        }
+	    }
+	    return 1;
 	}
 
 };
